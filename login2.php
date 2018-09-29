@@ -1,12 +1,13 @@
 <?php
+session_start();
 include("js/scripts.php");
 include("connections/conection.php");
+include("connections/Model.php");
+require('PHPMailer/PHPMailer.php');
 
-var_dump(isset($_POST["inputName"]));
+$model = new Model();
 
-if (isset($_POST["inputName"]) && isset($_POST["inputEmail4"]) && isset($_POST["inputPassword4"]) && isset($_POST["inputAddress"]) &&
-    isset($_POST["inputCity"]) && isset($_POST["inputState"]) && isset($_POST["inputZip"]) && isset($_POST["inputSex"]) &&
-    isset($_POST["inputDate"]) && isset($_POST["inputPerfil"])) {
+if (isset($_POST["inputName"])) {
     $nome = $_POST["inputName"];
     $email = $_POST["inputEmail4"];
     $password = $_POST["inputPassword4"];
@@ -17,17 +18,29 @@ if (isset($_POST["inputName"]) && isset($_POST["inputEmail4"]) && isset($_POST["
     $date = $_POST["inputDate"];
     $perf = $_POST["inputPerfil"];
 
-    $model = new Model();
+    $_SESSION['usuario'] = $email;
 
-    $result = $model->regist_user($email, $password, $address, $city, $perf, $con);
+    $result = $model->regist_user($email, $password, $address, $city, $perf, $nome, $con);
 
     if ($result == 1) {
-        header('Location: ../login2.php?msg=3');
+        echo "<script> alert ('Cadastro realizado com sucesso!')</script>";
     } else {
-        header('Location: ../login2.php?msg=4');
+        echo "<script> alert ('Falha ao realizar cadastro!')</script>";
     }
-}
+    }
 
+
+if (isset($_GET["forgot"]) && $_GET["forgot"] == 1 && isset($_POST["inputEmail"])) {
+
+    $email = $_POST["inputEmail"];
+    $_SESSION['usuario'] = $email;
+    $result = $model->reset_password($email, $con);
+
+    if ($result) {
+        echo "<script> alert ('Sua nova senha é:  $result') </script>";
+    }
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -58,8 +71,10 @@ if (isset($_POST["inputName"]) && isset($_POST["inputEmail4"]) && isset($_POST["
                 echo "<div class='alert alert-warning' style='width: 300px;'><strong>Aviso!</strong> É necessário confirmar o reCaptcha para continuar.</div>";
             } elseif ($_GET['msg'] == 2) {
                 echo "<div class='alert alert-danger' style='width: 300px;'><strong>Usuário ou Senha inválidos!</strong></div>";
+            } elseif ($_GET['msg'] == 5) {
+                echo "<div class='alert alert-warning' style='width: 300px;'><strong>Sua sessão expirou, por gentileza faça o login novamente.</strong></div>";
             } elseif ($_GET['msg'] = 3) {
-                echo "<div class='alert alert-sucess' style='width: 300px;'><strong>Usuário cadastrado com sucesso!</strong></div>";
+                echo "<div class='alert alert-success' style='width: 300px;'><strong>Usuário cadastrado com sucesso!</strong></div>";
             } elseif ($_GET['msg'] = 4) {
                 echo "<div class='alert alert-danger' style='width: 300px;'><strong>Falha ao cadastrar usuário!</strong></div>";
             }
@@ -72,9 +87,9 @@ if (isset($_POST["inputName"]) && isset($_POST["inputEmail4"]) && isset($_POST["
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password"
                required>
-        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('forgot.php')">Esqueci minha senha
+        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login'forgot.php')">Esqueci minha senha
         </button>
-        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('signup.php')">Não possui cadastro?
+        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login'signup.php')">Não possui cadastro?
             Cadastre-se agora!
         </button>
 

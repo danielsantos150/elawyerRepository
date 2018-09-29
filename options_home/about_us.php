@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../bootstrap/icon1.png">
@@ -23,6 +26,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <link href="../bootstrap/carousel.css" rel="stylesheet">
+    <title><?php include '../actions_login/title.php'; ?></title>
 </head>
 <body>
 
@@ -33,27 +37,24 @@
             <div class="container">
 
                 <div id="navbar" class="navbar-collapse collapse">
-                    <div class="col-md-1.9">
-                        <a class="navbar-brand" href="#">E-LAWYER</a>
-                    </div>
                     <div class="col-md-8">
                         <ul class="nav navbar-nav">
+                            <li><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                             <li><a href="../actions_login/home.php">Home</a></li>
                             <li class="active"><a href="../options_home/about_us.php">Sobre nós</a></li>
-                            <li><a href="#contact">Fale Conosco</a></li>
-                            <!--
-                                <li class="dropdown">
+                            <li><a href="../community/chat.php">Comunidade</a></li>
+                            <li><a href="contact_us.php">Fale Conosco</a></li>
+                            <li class="dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha Área <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Meu Perfil</a></li>
-                                    <li><a href="#">Meus Casos</a></li>
+                                    <li><a href="../options_home/profile.php">Meu Perfil</a></li>
+                                    <li><a href="../law/my_cases.php">Meus Casos</a></li>
                                     <li><a href="../login2.php">Sair</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li class="dropdown-header">Jurídico</li>
                                     <li><a href="#">Advogados</a></li>
                                 </ul>
-                                </li>
-                            -->
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-3">
@@ -75,7 +76,7 @@
     <ol class="carousel-indicators">
         <li data-target="#" data-slide-to="0" class="active"></li>
         <li data-target="#" data-slide-to="1"></li>
-        <li data-target="#" data-slide-to="2"></li>
+        <!--<li data-target="#" data-slide-to="2"></li>-->
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -86,14 +87,13 @@
                     <b><p style="color: #ffffff; font-style: oblique">Nossa ferramenta irá te proporcionar um melhor
                             acompanhamento dos seus casos jurídicos relacionado ao direito imobiliário do que qualquer
                             outra presente no mercado. Venha fazer parte da nossa comunidade!</p></b>
-                    <p><a class="btn btn-lg btn-primary" href="../actions_login/signup.php" role="button">Inscreva-se
-                            hoje</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="../community/chat.php" role="button">Conheça nossa
+                            comunidade</a></p>
                 </div>
             </div>
         </div>
         <div class="item">
-            <img class="second-slide"
-                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw="
+            <img class="second-slide" src="../bootstrap/oab-logo-.jpg"
                  alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
@@ -106,7 +106,7 @@
                 </div>
             </div>
         </div>
-        <div class="item">
+        <!--<div class="item">
             <img class="third-slide"
                  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                  alt="Third slide">
@@ -118,7 +118,7 @@
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -144,20 +144,18 @@
                  src="https://scontent.fplu4-1.fna.fbcdn.net/v/t1.0-1/p160x160/17796547_1351050921650043_5437890514798799012_n.jpg?_nc_cat=0&oh=f43864567b2b1db0d00dd54ab2f98d4c&oe=5C28F0A3"
                  alt="Generic placeholder image" width="140" height="140">
             <h2>Daniel Santos</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
-                vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
-                cursus magna.</p>
+            <p>Estudante na área de Sistemas Informação na Faculdade Cotemig, atualmente tem 21 anos de idade.</p>
             <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+        </div>
         <div class="col-lg-4">
             <img class="img-circle" src="../bootstrap/201303051406_oab.jpg" alt="Generic placeholder image" width="140"
                  height="140">
             <h2>OAB</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
-                mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh.</p>
+            <p>O Conselho Federal da Ordem dos Advogados do Brasil ou Conselho Federal da OAB ou simplesmente OAB é a
+                entidade máxima de representação dos advogados brasileiros e responsável pela regulamentação da
+                advocacia no Brasil, presidida atualmente por Claudio Lamachia.</p>
             <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+        </div>
         <div class="col-lg-4">
             <img class="img-circle" src="../bootstrap/CpCz7_KN_400x400.png" alt="Generic placeholder image" width="140"
                  height="140">
@@ -176,15 +174,14 @@
 
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span
-                        class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</p>
+            <h2 class="featurette-heading">O que nós podemos te oferecer? <span
+                        class="text-muted">Tudo o que você imaginar.</span></h2>
+            <p class="lead">Contamos com inúmeros advogados cadastrados na nossa plataforma para te auxilar em qualquer
+                momento da sua vida.</p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto"
-                 alt="Generic placeholder image">
+            <br><br><br><br><img class="featurette-image img-responsive center-block" src="../bootstrap/advogados.jpg"
+                                 alt="Generic placeholder image">
         </div>
     </div>
 
@@ -192,14 +189,13 @@
 
     <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
+            <h2 class="featurette-heading">E não é só. <span class="text-muted">Temos ainda um chat online.</span>
             </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</p>
+            <p class="lead">Nele você poderá trocar experiências com os demais usuários e auxilia-los com dúvidas, caso
+                assim desejar.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto"
+            <img class="featurette-image img-responsive center-block" src="../bootstrap/livechat.png"
                  alt="Generic placeholder image">
         </div>
     </div>
@@ -208,14 +204,14 @@
 
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</p>
+            <h2 class="featurette-heading">E por fim...<span class="text-muted">Você ainda pode sair com um advogado contratado.</span>
+            </h2>
+            <p class="lead">Nossa plataforma coloca a mercê inúmeros advogados bem qualificados para você entrar em
+                contato e fazer a contratação dos seus serviços.</p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto"
-                 alt="Generic placeholder image">
+            <br><br><br><br><img class="featurette-image img-responsive center-block" src="../bootstrap/contratar.jpg"
+                                 alt="Generic placeholder image">
         </div>
     </div>
 
@@ -227,7 +223,7 @@
     <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2018 Company, Inc. &middot; <!--<a href="#">Privacy</a> &middot; <a href="#">Terms</a>--></p>
     </footer>
 
 </div><!-- /.container -->

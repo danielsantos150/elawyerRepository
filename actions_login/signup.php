@@ -87,10 +87,10 @@ include("../js/scripts.php");
                 <label for="inputPerfil">Perfil</label>
                 <select id="inputPerfil" name="inputPerfil" class="form-control">
                     <option selected>Selecione...</option>
-                    <option value="advogado">Advogado</option>
-                    <option value="cliente">Cliente</option>
-                    <option value="free">Free-Cause</option>
-                    <option value="consult">Consultor</option>
+                    <option value="0">Advogado</option>
+                    <option value="1">Cliente</option>
+                    <option value="2">Free-Cause</option>
+                    <option value="3">Consultor</option>
                 </select>
             </div>
         </div>

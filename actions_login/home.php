@@ -1,29 +1,42 @@
 <?php
 include('../connections/Model.php');
 include('../connections/conection.php');
+session_start();
 
 if (isset($_POST)) {
 
-    $resultado = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LeJxG0UAAAAAIrth9YRWfoMDupIz787XfjkaLn_&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR']);
-    //echo $resultado;exit;
 
-    $obj = json_decode($resultado);
-
-    if ($obj->{'success'} == false) {
-        header('Location: ../login2.php?msg=1');
+    if (isset($_POST["inputEmail"])) {
+        $_SESSION["usuario"] = $_POST["inputEmail"];
     } else {
-        $model = new Model();
-
-        $email = $_POST['inputEmail'];
-        $password = $_POST['inputPassword'];
-        $result = $model->select_user($email, $password, $con);
-
-        $result = mysqli_fetch_assoc($result);
-
-        if ($result == NULL) {
-            header('Location: ../login2.php?msg=2');
+        if (!$_SESSION['usuario']) {
+            header('Location: ../login2.php?msg=5');
         }
     }
+
+    if (isset($_POST['g-recaptcha-response'])) {
+        $resultado = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LeJxG0UAAAAAIrth9YRWfoMDupIz787XfjkaLn_&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR']);
+
+        $obj = json_decode($resultado);
+
+        if ($obj->{'success'} == false) {
+            header('Location: ../login2.php?msg=1');
+        } else {
+            $model = new Model();
+
+            $email = $_POST['inputEmail'];
+            $password = $_POST['inputPassword'];
+            $result = $model->select_user($email, $password, $con);
+
+            if ($result == NULL) {
+                header('Location: ../login2.php?msg=2');
+            }
+
+        }
+
+    }
+
+
 }
 
 ?>
@@ -48,33 +61,32 @@ if (isset($_POST)) {
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-        </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="home.php">Home</a></li>
                 <li><a href="../options_home/about_us.php">Sobre nós</a></li>
-                <li><a href="#contact">Fale Conosco</a></li>
+                <li><a href="../community/chat.php">Comunidade</a></li>
+                <li><a href="../options_home/contact_us.php">Fale Conosco</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Jurídico <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../law/lawyers.php">Advogados</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="../law/rank.php">Ranking</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Minha Área <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Meu Perfil</a></li>
-                        <li><a href="#">Meus Casos</a></li>
-                        <li><a href="../login2.php">Sair</a></li>
+                        <li><a href="../options_home/profile.php">Meu Perfil</a></li>
+                        <li><a href="../law/my_cases.php">Meus Casos</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Jurídico</li>
-                        <li><a href="#">Advogados</a></li>
+                        <li><a href="../login2.php">Sair</a></li>
                     </ul>
                 </li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a>Bem Vindo ao E-LAWYER! <span class="sr-only">(current)</span></a></li>
@@ -116,8 +128,7 @@ if (isset($_POST)) {
                     nº 8.078/90</a></p>
         </div>
         <p>
-            <a class="btn btn-lg btn-primary" href="#navbar" role="button">Visite nossa comunidade &raquo;</a>
-            <!-- Aqui é onde será o link para ir para a comunidade  #falta fazer#-->
+            <a class="" href="#navbar" role="button"> &nbsp;</a>
         </p>
     </div>
 </div>
@@ -127,26 +138,21 @@ if (isset($_POST)) {
     <div class="row">
         <div class="col-md-4">
             <h2>Daniel Santos</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh,
-                ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
-                dui. </p>
+            <p>Descrição do profissional. </p>
             <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p>
         </div>
         <div class="col-md-4">
             <h2>Fernanda Maia</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh,
-                ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
-                dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p>
+            <!-- <center><img class="img-circle" src="../bootstrap/pessoa1.jpg" alt="Generic placeholder image" width="140"
+                         height="140"></center>-->
+            <p>Descrição do profissional.</p>
+            <!-- <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p> -->
         </div>
         <div class="col-md-4">
-            <h2>Fernando Junior</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper.
-                Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit
-                amet risus.</p>
+            <h2>Fernando Junior</h2><!-- <h2>Fernando Junior</h2> -->
+            <!-- <center><img class="img-circle" src="../bootstrap/pessoa2.jpg" alt="Generic placeholder image" width="140"
+                         height="140" style="border-radius: 5px"></center>-->
+            <p>Descrição Profissional.</p>
             <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p>
         </div>
     </div>

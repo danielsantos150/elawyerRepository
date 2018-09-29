@@ -22,8 +22,8 @@ include("../js/scripts.php");
 <body>
 <div class="container">
 
-    <form class="form-signin" id="form2" name="form2" method="POST" action="../login2.php"
-          onSubmit="javascript:showMenssage();" autocomplete="off">
+    <form class="form-signin" id="form2" name="form2" method="POST" action="../login2.php?forgot=1"
+          autocomplete="off">
 
         <center><h2 class="form-signin-heading">E-LAWYER</h2></center>
         <br>
@@ -31,7 +31,8 @@ include("../js/scripts.php");
         <p>Escreva seu email que enviaremos uma nova senha por e-mail!</p>
         <br>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
+        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required
+               autofocus
                autocomplete="off">
         <br>
         <center>
