@@ -6,6 +6,8 @@
  * Time: 22:35
  */
 include_once "../nav.php";
+
+//include_once "info_perfil.php"
 ?>
 
 <!DOCTYPE html>
@@ -35,21 +37,18 @@ include_once "../nav.php";
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="../inc/style.css" >
-
     </head>
-
     <body>
         <?php echo $nav;?>
         <div class="container">
             <div class="row profile">
                 <div class="col-md-3">
                     <div class="profile-sidebar">
-                        <!-- SIDEBAR USERPIC -->
+
                         <div class="profile-userpic">
                             <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
                         </div>
-                        <!-- END SIDEBAR USERPIC -->
-                        <!-- SIDEBAR USER TITLE -->
+
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name">
                                 Usuario
@@ -58,40 +57,49 @@ include_once "../nav.php";
                                 Advogado
                             </div>
                         </div>
-                        <!-- END SIDEBAR USER TITLE -->
-                        <!-- SIDEBAR BUTTONS -->
+
                         <div class="profile-userbuttons">
                             <button type="button" class="btn btn-success btn-sm">Follow</button>
                             <button type="button" class="btn btn-danger btn-sm">Message</button>
                         </div>
-                        <!-- END SIDEBAR BUTTONS -->
-                        <!-- SIDEBAR MENU -->
+
                         <div class="profile-usermenu">
                             <ul class="nav">
-                                <li class="active">
-                                    <a href="#">
+                                <li id=info class="active">
+                                    <a href="?type=1">
                                         <i class="glyphicon glyphicon-user"></i>
                                         Informações Gerais </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="?type=2">
                                         <i class="glyphicon glyphicon-th-list"></i>
                                         Casos Jurídicos </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank">
+                                    <a href="?type=3">
                                         <i class="glyphicon glyphicon-ok"></i>
                                         Avaliações </a>
                                 </li>
                             </ul>
                         </div>
-                        <!-- END MENU -->
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="profile-content">
-                        Some user related content goes here...
-                    </div>
+                    <?php if(isset($_GET["type"])){
+                        if($_GET["type"] == 1){
+                            echo '<div class="profile-content">
+                                    CASE 1
+                                    </div>';
+                        }elseif ($_GET["type"] == 2){
+                            echo '<div class="profile-content">
+                                    CASE 2
+                                    </div>';
+                        }elseif ($_GET["type"] == 3){
+                            echo '<div class="profile-content">
+                                    CASE 3
+                                    </div>';
+                        }
+                    }?>
                 </div>
             </div>
         </div>
