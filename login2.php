@@ -87,9 +87,9 @@ if (isset($_GET["forgot"]) && $_GET["forgot"] == 1 && isset($_POST["inputEmail"]
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password"
                required>
-        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login'forgot.php')">Esqueci minha senha
+        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('forgot.php')">Esqueci minha senha
         </button>
-        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login'signup.php')">Não possui cadastro?
+        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('signup.php')">Não possui cadastro?
             Cadastre-se agora!
         </button>
 

@@ -20,7 +20,8 @@
     }
 
     function redirect_perfil(elem) {
-        window.location.href = 'law/' + elem
+        alert(elem);die();
+        window.location.href = 'law/perfil_lawyer.php?' + elem
     }
     
 </script>
