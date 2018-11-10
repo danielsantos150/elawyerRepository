@@ -5,7 +5,16 @@
  * Date: 04/11/2018
  * Time: 22:35
  */
+session_start();
 include_once "../nav.php";
+include_once "../connections/Model.php";
+
+$nome = "";
+if (isset($_GET["name"])) {
+    $_SESSION["nome"] = $_GET["name"];
+}
+
+$nome = $_SESSION["nome"];
 
 //include_once "info_perfil.php"
 ?>
@@ -44,28 +53,27 @@ include_once "../nav.php";
             <div class="row profile">
                 <div class="col-md-3">
                     <div class="profile-sidebar">
-
+                        <!-- Adicionar as inicais do nome do advogado -->
                         <div class="profile-userpic">
                             <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
                         </div>
-
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name">
-                                Usuario
+                                <?php echo $nome; ?>
                             </div>
                             <div class="profile-usertitle-job">
                                 Advogado
                             </div>
                         </div>
-
                         <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm">Follow</button>
-                            <button type="button" class="btn btn-danger btn-sm">Message</button>
+                            <button type="button" class="btn btn-success btn-sm" title="Demonstrar interesse">
+                                Interesse
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm">Denunciar</button>
                         </div>
-
                         <div class="profile-usermenu">
                             <ul class="nav">
-                                <li id=info class="active">
+                                <li id=info>
                                     <a href="?type=1">
                                         <i class="glyphicon glyphicon-user"></i>
                                         Informações Gerais </a>
@@ -87,9 +95,48 @@ include_once "../nav.php";
                 <div class="col-md-9">
                     <?php if(isset($_GET["type"])){
                         if($_GET["type"] == 1){
-                            echo '<div class="profile-content">
-                                    CASE 1
-                                    </div>';
+                            echo '<div class="profile-content">                                    
+                            <div class="form-group">
+                                <div class="col-xs-12">                                    
+                                    <label for="first_name"><h5>Nome</h5></label>
+                                    <input type="text" readonly class="form-control" name="first_name" id="first_name"
+                                           placeholder="Primeiro nome" title="Digite o seu primeiro nome aqui"
+                                           value="' . $nome . '"
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="phone"><h5>Telefone Residencial</h5></label>
+                                    <input type="text" readonly class="form-control" name="phone" id="phone"
+                                           placeholder="(XX) XXXX-XXXX" title="Digite seu telefone aqui"
+                                           value=""
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="mobile"><h5>Telefone Celular</h5></label>
+                                    <input type="text" readonly class="form-control" name="mobile" id="mobile"
+                                           placeholder="(XX) XXXXX-XXXX" title="Digite seu celular aqui"
+                                           value=""
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="email"><h5>Email</h5></label>
+                                    <input type="email" readonly class="form-control" name="email" id="email"
+                                           placeholder="email@email.com" title="Seu email não pode ser alterado"
+                                           value=""
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="email"><h5>Escritório</h5></label>
+                                    <input type="text" readonly class="form-control" name="place" id="place"
+                                           value="Escritório"
+                                </div>
+                            </div>                            
+                        </div>';
                         }elseif ($_GET["type"] == 2){
                             echo '<div class="profile-content">
                                     CASE 2
@@ -103,9 +150,9 @@ include_once "../nav.php";
                 </div>
             </div>
         </div>
-        <p class="text-center">
+        <!--<p class="text-center">
             <strong>Powered by <a href="" target="_blank"></a></strong>
-        </p>
+        </p>-->
     </body>
 </html>
 
