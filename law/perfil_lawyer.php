@@ -13,10 +13,10 @@ $nome = "";
 if (isset($_GET["name"])) {
     $_SESSION["nome"] = $_GET["name"];
 }
-
+$_SESSION["nome"] = "DANIEL";
 $nome = $_SESSION["nome"];
 
-//include_once "info_perfil.php"
+include_once "info_perfil.php"
 ?>
 
 <!DOCTYPE html>
@@ -95,52 +95,9 @@ $nome = $_SESSION["nome"];
                 <div class="col-md-9">
                     <?php if(isset($_GET["type"])){
                         if($_GET["type"] == 1){
-                            echo '<div class="profile-content">                                    
-                            <div class="form-group">
-                                <div class="col-xs-12">                                    
-                                    <label for="first_name"><h5>Nome</h5></label>
-                                    <input type="text" readonly class="form-control" name="first_name" id="first_name"
-                                           placeholder="Primeiro nome" title="Digite o seu primeiro nome aqui"
-                                           value="' . $nome . '"
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="phone"><h5>Telefone Residencial</h5></label>
-                                    <input type="text" readonly class="form-control" name="phone" id="phone"
-                                           placeholder="(XX) XXXX-XXXX" title="Digite seu telefone aqui"
-                                           value=""
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="mobile"><h5>Telefone Celular</h5></label>
-                                    <input type="text" readonly class="form-control" name="mobile" id="mobile"
-                                           placeholder="(XX) XXXXX-XXXX" title="Digite seu celular aqui"
-                                           value=""
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="email"><h5>Email</h5></label>
-                                    <input type="email" readonly class="form-control" name="email" id="email"
-                                           placeholder="email@email.com" title="Seu email não pode ser alterado"
-                                           value=""
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="email"><h5>Escritório</h5></label>
-                                    <input type="text" readonly class="form-control" name="place" id="place"
-                                           value="Escritório"
-                                </div>
-                            </div>                            
-                        </div>';
+                            echo $info_Perfil;
                         }elseif ($_GET["type"] == 2){
-                            echo '<div class="profile-content">
-                                    CASE 2
-                                    </div>';
+                            echo $info_Perfil;
                         }elseif ($_GET["type"] == 3){
                             echo '<div class="profile-content">
                                     CASE 3
