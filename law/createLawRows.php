@@ -12,7 +12,6 @@
 
     $valores = $model->searchLaw($con);
     $num_row = mysqli_num_rows($valores);
-    //$arrayLaws = mysqli_fetch_array($laws);
     $advogados = "";
 
     for ($i = 1; $i <= $num_row; $i++) {

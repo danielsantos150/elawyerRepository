@@ -13,7 +13,6 @@ $nome = "";
 if (isset($_GET["name"])) {
     $_SESSION["nome"] = $_GET["name"];
 }
-$_SESSION["nome"] = "DANIEL";
 $nome = $_SESSION["nome"];
 
 include_once "info_perfil.php"
@@ -45,9 +44,13 @@ include_once "info_perfil.php"
 
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="../inc/style_law.css" >
+
         <link rel="stylesheet" href="../inc/style.css" >
+
     </head>
-    <body>
+    <body style="background-image: url('../inc/background.png');">
         <?php echo $nav;?>
         <div class="container">
             <div class="row profile">
@@ -99,17 +102,12 @@ include_once "info_perfil.php"
                         }elseif ($_GET["type"] == 2){
                             echo $info_Perfil;
                         }elseif ($_GET["type"] == 3){
-                            echo '<div class="profile-content">
-                                    CASE 3
-                                    </div>';
+                            echo $info_Perfil;
                         }
                     }?>
                 </div>
             </div>
         </div>
-        <!--<p class="text-center">
-            <strong>Powered by <a href="" target="_blank"></a></strong>
-        </p>-->
     </body>
 </html>
 

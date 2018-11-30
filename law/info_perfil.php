@@ -6,6 +6,8 @@
  * Time: 21:23
  */
 
+    include_once "operations_info_perfil.php";
+
     $menu = 1;
 
     if(isset($_GET["type"])){
@@ -90,7 +92,5 @@
         </table>
                         </div>';
     }elseif ($menu == 3) {
-        $info_Perfil = '<div class="profile-content">
-                            CASE 3
-                        </div>';
+        $info_Perfil = $mensagem;
     }
