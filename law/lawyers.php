@@ -45,50 +45,11 @@
     </script>
 </head>
 
-<body>
-    <!--<nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">E-LAWYER</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="../actions_login/home.php">Home</a></li>
-                    <li><a href="../options_home/about_us.php">Sobre nós</a></li>
-                    <li><a href="../community/chat.php">Comunidade</a></li>
-                    <li><a href="../options_home/contact_us.php">Fale Conosco</a></li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Jurídico <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../law/lawyers.php">Advogados</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../law/rank.php">Ranking</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Minha Área <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../options_home/profile.php">Meu Perfil</a></li>
-                            <li><a href="../law/my_cases.php">Meus Casos</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../login2.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>-->
+<body style="background-image: url('../inc/background.png')">
     <?php echo $nav;?>
 
-<div class="container search-table">
+
+<div class="container search-table" style="margin-top: 60px;">
 
     <div class="search-box">
         <div class="row">
@@ -96,7 +57,7 @@
                 <h5>Pesquisar Advogados da Plataforma</h5>
             </div>
             <div class="col-md-9">
-                <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Pesquisar"
+                <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Digite o nome para pesquisar"
                        title="Digite aqui o nome do advogado">
 
             </div>
@@ -113,57 +74,7 @@
             </tr>
             </thead>
             <tbody>
-            <!--<tr>
-                <td class="col-md-2">Fernanda Maia</td>
-                <td class="col-md-9">Procuradora Municipal em Belo Horizonte/MG; Consultora Jurídico</td>
-                <td class="text-center col-md-1">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalInfo">
-                        <span class="glyphicon glyphicon-search"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-2">Fernando Junior</td>
-                <td class="col-md-9">Procurador Municipal em Belo Horizonte/MG; Consultor Jurídico; Empresário do
-                    Mercado Imobiliário; Corretor de Imóveis
-                </td>
-                <td class="text-center col-md-1">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalInfo">
-                        <span class="glyphicon glyphicon-search"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-2">Raimundo Reis</td>
-                <td class="col-md-9">Direito Imobiliário e Registral, assessorando investidores, famílias, bancos,
-                    empresas loteadoreas e incorporadoras, acumulou vasta experiência em questões jurídico-patrimoniais,
-                    e hoje atua como conselheiro.
-                </td>
-                <td class="text-center col-md-1">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalInfo">
-                        <span class="glyphicon glyphicon-search"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-2">Eduardo Reis</td>
-                <td class="col-md-9">Advogado com larga experiência em questões sucessórias e divisórias envolvendo bens
-                    imóveis e na assessoria a empreendedores imobiliários, incorporadores e loteadores.
-                </td>
-                <td class="text-center col-md-1">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalInfo">
-                        <span class="glyphicon glyphicon-search"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-2">Caio da Costa</td>
-                <td class="col-md-9">Área cível em geral e imobiliária, especialmente contratos imobiliários,
-                    regularização de imóveis, procedimentos administrativos e judiciais envolvendo parcelamento do solo
-                    e edificações, procedimentos de usucapião judicial e extrajudicial e partilhas envolvendo imóveis
-                </td>
-                <td class="text-center col-md-1">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modalInfo">
-                        <span class="glyphicon glyphicon-search"></span></button>
-                </td>
-            </tr>-->
-            <?php echo $advogados; ?>
+                <?php echo $advogados; ?>
             </tbody>
         </table>
     </div>

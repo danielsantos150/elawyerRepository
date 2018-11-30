@@ -59,46 +59,46 @@ if (isset($_GET["forgot"]) && $_GET["forgot"] == 1 && isset($_POST["inputEmail"]
     <script src="bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body>
-<div class="container">
+<body style="background-image: url('inc/background.png')">
+    <div class="container">
 
-    <form class="form-signin" id="form1" name="form1" method="POST" action="actions_login/home.php" autocomplete="off">
-        <h2 class="form-signin-heading">E-LAWYER</h2>
+        <form class="form-signin" id="form1" name="form1" method="POST" action="actions_login/home.php" autocomplete="off">
+            <h2 class="form-signin-heading">E-LAWYER</h2>
 
-        <?php
-        if (isset($_GET['msg'])) {
-            if ($_GET['msg'] == 1) {
-                echo "<div class='alert alert-warning' style='width: 300px;'><strong>Aviso!</strong> É necessário confirmar o reCaptcha para continuar.</div>";
-            } elseif ($_GET['msg'] == 2) {
-                echo "<div class='alert alert-danger' style='width: 300px;'><strong>Usuário ou Senha inválidos!</strong></div>";
-            } elseif ($_GET['msg'] == 5) {
-                echo "<div class='alert alert-warning' style='width: 300px;'><strong>Sua sessão expirou, por gentileza faça o login novamente.</strong></div>";
-            } elseif ($_GET['msg'] = 3) {
-                echo "<div class='alert alert-success' style='width: 300px;'><strong>Usuário cadastrado com sucesso!</strong></div>";
-            } elseif ($_GET['msg'] = 4) {
-                echo "<div class='alert alert-danger' style='width: 300px;'><strong>Falha ao cadastrar usuário!</strong></div>";
+            <?php
+            if (isset($_GET['msg'])) {
+                if ($_GET['msg'] == 1) {
+                    echo "<div class='alert alert-warning' style='width: 300px;'><strong>Aviso!</strong> É necessário confirmar o reCaptcha para continuar.</div>";
+                } elseif ($_GET['msg'] == 2) {
+                    echo "<div class='alert alert-danger' style='width: 300px;'><strong>Usuário ou Senha inválidos!</strong></div>";
+                } elseif ($_GET['msg'] == 5) {
+                    echo "<div class='alert alert-warning' style='width: 300px;'><strong>Sua sessão expirou, por gentileza faça o login novamente.</strong></div>";
+                } elseif ($_GET['msg'] = 3) {
+                    echo "<div class='alert alert-success' style='width: 300px;'><strong>Usuário cadastrado com sucesso!</strong></div>";
+                } elseif ($_GET['msg'] = 4) {
+                    echo "<div class='alert alert-danger' style='width: 300px;'><strong>Falha ao cadastrar usuário!</strong></div>";
+                }
             }
-        }
-        ?>
+            ?>
 
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required
-               autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password"
-               required>
-        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('forgot.php')">Esqueci minha senha
-        </button>
-        <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('signup.php')">Não possui cadastro?
-            Cadastre-se agora!
-        </button>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required
+                   autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password"
+                   required>
+            <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('forgot.php')">Esqueci minha senha
+            </button>
+            <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('signup.php')">Não possui cadastro?
+                Cadastre-se agora!
+            </button>
 
-        <div class="g-recaptcha" data-sitekey="6LeJxG0UAAAAAN45DcMNRLMlDYhK465zhUR-y_km"></div>
-        <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">ENTRAR</button>
-    </form>
+            <div class="g-recaptcha" data-sitekey="6LeJxG0UAAAAAN45DcMNRLMlDYhK465zhUR-y_km"></div>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" style="background-color: #8a6d3b; border: 0px;" type="submit">ENTRAR</button>
+        </form>
 
-</div>
+    </div>
 
 <script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>

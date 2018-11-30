@@ -23,7 +23,7 @@
                 <td class="col-md-2">'.$linha["nome"].'</td>
                 <td class="col-md-9">'.$linha["resumo"].'</td>
                 <td class="text-center col-md-1">
-                    <button type="button" class="btn btn-primary btn-sm"  onclick="window.location.href = \'perfil_lawyer.php?name='.$linha["nome"].'\'" >
+                    <button type="button" class="btn btn-primary btn-sm" style="background-color: #8a6d3b;border: 0px;"  onclick="window.location.href = \'perfil_lawyer.php?name='.$linha["nome"].'\'" >
                         <span class="glyphicon glyphicon-user"></span></button>
                 </td>
             </tr>';

@@ -42,10 +42,11 @@ for ($i = 1; $i <= $qtd; $i++) {
     <script src="../bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
     <script src="../js/js.js"></script>
     <title><?php include '../actions_login/title.php'; ?></title>
+
 </head>
 
-<body>
-<nav class="navbar navbar-inverse navbar-top">
+<body style="background-image: url('../inc/background.png')">
+    <nav class="navbar-inverse navbar-static-top">
 
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -66,14 +67,21 @@ for ($i = 1; $i <= $qtd; $i++) {
             <li><a href="../options_home/contact_us.php">Fale Conosco</a></li>
             <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Jurídico <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="../law/lawyers.php">Advogados</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="../law/rank.php">Ranking</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Minha Área <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="../options_home/profile.php">Meu Perfil</a></li>
                     <li><a href="../law/my_cases.php">Meus Casos</a></li>
-                    <li><a href="../login2.php">Sair</a></li>
                     <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Jurídico</li>
-                    <li><a href="#">Advogados</a></li>
+                    <li><a href="../login2.php">Sair</a></li>
                 </ul>
             </li>
         </ul>
@@ -82,80 +90,26 @@ for ($i = 1; $i <= $qtd; $i++) {
         </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container" style="height: 600px; width: 1500px;">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-1">
             <ul class='list-group'>
-                <li class='list-group-item active'>Usuários Online</li>
+                <li class='list-group-item active' style="background-color: #6B4226; border: 0px;">Usuários Online</li>
                 <?php
                 echo $usuarios;
                 ?>
             </ul>
         </div>
-        <div class="col-md-10">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Comunidade
+        <div class="col-md-11">
+            <div class="panel panel-primary" style="border: 0px;">
+                <div class="panel-heading" style="background-color: #6B4226;">
+                    <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Comunidade
                 </div>
                 <div class="panel-body" id="recent_activity">
                     <ul class="chat">
-                        <!-- <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>-->
-                        <!-- <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&amp;text=ME" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>-->
+
                         <?php echo $mensagem; ?>
-                        <!-- <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&amp;text=ME" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>-->
+
                     </ul>
                 </div>
                 <form id="form_envia" name="form_envia" method="POST"

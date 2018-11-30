@@ -19,30 +19,28 @@ include("../js/scripts.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
-<body>
-<div class="container">
+<body style="background-image: url('../inc/background.png')">
+    <div class="container">
 
-    <form class="form-signin" id="form2" name="form2" method="POST" action="../login2.php?forgot=1"
-          autocomplete="off">
+        <form class="form-signin" id="form2" name="form2" method="POST" action="../login2.php?forgot=1"
+              autocomplete="off">
 
-        <center><h2 class="form-signin-heading">E-LAWYER</h2></center>
-        <br>
-        <p>Esqueceu a sua senha?</p>
-        <p>Escreva seu email que enviaremos uma nova senha por e-mail!</p>
-        <br>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required
-               autofocus
-               autocomplete="off">
-        <br>
-        <center>
-            <button class="btn btn-lg btn-primary btn-block">ENVIAR</button>
-        </center>
-        <br>
+            <h2 class="form-signin-heading" style="text-align: center;">E-LAWYER</h2>
+            <br>
+            <p>Esqueceu a sua senha?</p>
+            <p>Escreva seu email que iremos redefinir sua senha!</p>
+            <br>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required
+                   autofocus
+                   autocomplete="off">
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" style="background-color: #8a6d3b;border: 0px;text-align: center;">ENVIAR</button>
+            <br>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
 <script src="../bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>

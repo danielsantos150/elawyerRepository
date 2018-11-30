@@ -7,7 +7,7 @@
  */
 
 
-$nav = '<nav class="navbar navbar-inverse">
+$nav = '<nav class="navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -38,11 +38,10 @@ $nav = '<nav class="navbar navbar-inverse">
                         <ul class="dropdown-menu">
                             <li><a href="../options_home/profile.php">Meu Perfil</a></li>
                             <li><a href="../law/my_cases.php">Meus Casos</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="../login2.php">Sair</a></li>
                         </ul>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../login2.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
                 </ul>
             </div>
         </div>

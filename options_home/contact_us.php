@@ -33,8 +33,8 @@ if (isset($_GET["success"])) {
 
 </head>
 
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<body style="background-image: url('../inc/background.png')">
+<nav class="navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -53,14 +53,21 @@ if (isset($_GET["success"])) {
                 <li class="active"><a href="contact_us.php">Fale Conosco</a></li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Jurídico <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../law/lawyers.php">Advogados</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="../law/rank.php">Ranking</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Minha Área <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="../options_home/profile.php">Meu Perfil</a></li>
                         <li><a href="../law/my_cases.php">Meus Casos</a></li>
-                        <li><a href="../login2.php">Sair</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Jurídico</li>
-                        <li><a href="#">Advogados</a></li>
+                        <li><a href="../login2.php">Sair</a></li>
                     </ul>
                 </li>
             </ul>
@@ -70,11 +77,9 @@ if (isset($_GET["success"])) {
         </div>
     </div>
 </nav>
-<br>
-<br><br><br><br>
-<form id="form_contact" method="POST" action="contact_us.php?success=true">
+
+<form id="form_contact" method="POST" action="contact_us.php?success=true" style="margin-top: 60px;">
     <div class="container">
-        <!------ Include the above in your HEAD tag ---------->
         <h3 class="text-center">FALE CONOSCO!</h3></center>
         <p class="text-center">
             Tem alguma sugestão, dúvida, ajuda ou deseja mandar uma mensagem diretamente para nós?
@@ -85,7 +90,11 @@ if (isset($_GET["success"])) {
             <div class="container">
                 <?php
                 if (isset($_GET["success"])) {
-                    echo "<div class='alert alert-success' >Mensagem encaminhada com sucesso!</div>";
+                    echo "<div class='alert alert-success' >Mensagem encaminhada com sucesso!
+                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                        </div>";
                 }
                 ?>
                 <div class="form-group">
@@ -115,7 +124,7 @@ if (isset($_GET["success"])) {
                     <label class="col-md-4 control-label" for="singlebutton_enviar"></label>
                     <div class="col-md-4">
                         <button id="singlebutton_enviar" name="singlebutton_enviar" type="submit"
-                                class="btn btn-primary">Enviar
+                                class="btn" style="background-color: #00CC00; color:#000;">Enviar
                         </button>
                     </div>
                 </div>
@@ -123,7 +132,7 @@ if (isset($_GET["success"])) {
         </div>
         <hr>
         <footer>
-            <p>&copy; 2018 Company, Inc.</p>
+            <p>&copy; 2018 COTEMIG</p>
         </footer>
     </div>
 </form>

@@ -26,7 +26,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -43,6 +43,15 @@
                 <li><a href="../options_home/about_us.php">Sobre nós</a></li>
                 <li><a href="../community/chat.php">Comunidade</a></li>
                 <li><a href="../options_home/contact_us.php">Fale Conosco</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Jurídico <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../law/lawyers.php">Advogados</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="../law/rank.php">Ranking</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown active">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Minha Área <span class="caret"></span></a>

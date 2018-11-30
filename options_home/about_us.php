@@ -28,12 +28,19 @@ session_start();
     <link href="../bootstrap/carousel.css" rel="stylesheet">
     <title><?php include '../actions_login/title.php'; ?></title>
 </head>
-<body>
+<body style="background-image: url('../inc/background.png')">
 
 <div class="navbar-wrapper">
 
     <div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
             <div class="container">
 
                 <div id="navbar" class="navbar-collapse collapse">
@@ -45,14 +52,20 @@ session_start();
                             <li><a href="../community/chat.php">Comunidade</a></li>
                             <li><a href="contact_us.php">Fale Conosco</a></li>
                             <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">Jurídico <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../law/lawyers.php">Advogados</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="../law/rank.php">Ranking</a></li>
+                                </ul>
+                            <li class="dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha Área <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="../options_home/profile.php">Meu Perfil</a></li>
                                     <li><a href="../law/my_cases.php">Meus Casos</a></li>
-                                    <li><a href="../login2.php">Sair</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li class="dropdown-header">Jurídico</li>
-                                    <li><a href="#">Advogados</a></li>
+                                    <li><a href="../login2.php">Sair</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -68,15 +81,11 @@ session_start();
     </div>
 </div>
 
-
-<!-- Carousel
-================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+
     <ol class="carousel-indicators">
         <li data-target="#" data-slide-to="0" class="active"></li>
         <li data-target="#" data-slide-to="1"></li>
-        <!--<li data-target="#" data-slide-to="2"></li>-->
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -87,7 +96,7 @@ session_start();
                     <b><p style="color: #ffffff; font-style: oblique">Nossa ferramenta irá te proporcionar um melhor
                             acompanhamento dos seus casos jurídicos relacionado ao direito imobiliário do que qualquer
                             outra presente no mercado. Venha fazer parte da nossa comunidade!</p></b>
-                    <p><a class="btn btn-lg btn-primary" href="../community/chat.php" role="button">Conheça nossa
+                    <p><a class="btn btn-lg btn-default" href="../community/chat.php" role="button">Conheça nossa
                             comunidade</a></p>
                 </div>
             </div>
@@ -101,24 +110,11 @@ session_start();
                     <b><p style="color: #ffffff; font-style: oblique">O Conselho Federal da Ordem dos Advogados do
                             Brasil ou Conselho Federal da OAB ou simplesmente OAB é a entidade máxima de representação
                             dos advogados brasileiros e responsável pela regulamentação da advocacia no Brasil.</p></b>
-                    <p><a class="btn btn-lg btn-primary" href="https://www.oab.org.br/" target="_blank" role="button">Visitar
+                    <p><a class="btn btn-lg btn-default" href="https://www.oab.org.br/" target="_blank" role="button">Visitar
                             OAB</a></p>
                 </div>
             </div>
         </div>
-        <!--<div class="item">
-            <img class="third-slide"
-                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                 alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                        at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-            </div>
-        </div>-->
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -223,7 +219,7 @@ session_start();
     <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2018 Company, Inc. &middot; <!--<a href="#">Privacy</a> &middot; <a href="#">Terms</a>--></p>
+        <p>&copy; 2018 COTEMIG </p>
     </footer>
 
 </div><!-- /.container -->
