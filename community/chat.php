@@ -13,7 +13,7 @@ $usuOnlines = "";
 for ($i = 1; $i <= $qtd; $i++) {
     $linha = mysqli_fetch_assoc($result);
 
-    $usuarios .= "<li class='list-group-item' style='background-color: #00CC00; border: #0f0f0f'>
+    $usuarios .= "<li class='list-group-item' style='background-color: #61cc0a; border: #0f0f0f'>
                         $linha[users]
                     </li>";
 
@@ -70,8 +70,6 @@ for ($i = 1; $i <= $qtd; $i++) {
                    aria-expanded="false">Jurídico <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="../law/lawyers.php">Advogados</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="../law/rank.php">Ranking</a></li>
                 </ul>
             </li>
             <li class="dropdown">

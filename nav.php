@@ -27,9 +27,7 @@ $nav = '<nav class="navbar-inverse navbar-static-top">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Jurídico <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../law/lawyers.php">Advogados</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../law/rank.php">Ranking</a></li>
+                            <li><a href="../law/lawyers.php">Advogados</a></li>                            
                         </ul>
                     </li>
                     <li class="dropdown">

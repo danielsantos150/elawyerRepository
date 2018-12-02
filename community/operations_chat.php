@@ -22,8 +22,6 @@ for ($i = 1; $i <= $num_row; $i++) {
 
     $linha = mysqli_fetch_assoc($valores);
 
-    // <img src='http://placehold.it/50/FA6F57/fff&amp;text=ME' alt='User Avatar' class='img-circle'>
-
     $mensagem .= "<li class='right clearfix'><span class='chat-img pull-right'>
                         
                     </span>

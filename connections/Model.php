@@ -274,4 +274,52 @@ class Model
         }
     }
 
+    function mandaNotificacao($con, $uSend, $uReceive, $msg){
+
+        try{
+            $query = "INSERT INTO `database_lawyer`.`notify` 
+                (`user_send`,`user_receive`, `date`,`mensage`)
+                VALUES
+                ('".$uSend."',
+                '".$uReceive."',
+                now(),
+                '".$msg."');";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+
+    }
+
+    function buscaInfoAdvogado($con, $nome){
+        try{
+            $query = "SELECT l.name, l.email, l.phone, l.mobile, l.resumo, l.rank 
+                      FROM database_lawyer.law l 
+                      WHERE l.name = '".$nome."' limit 1;";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+    }
+
+    function buscaCasosAdvogado($con, $nome){
+        try{
+            $query = "SELECT c.id_case, c.client, c.describe, c.date 
+                      FROM database_lawyer.law_cases c 
+                      WHERE c.law = '".$nome."';";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+    }
+
 }

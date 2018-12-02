@@ -5,9 +5,19 @@
  * Date: 29/09/2018
  * Time: 15:52
  */
+session_start();
 
 if (isset($_GET["success"])) {
-    //falta enviar o email com as informações...
+
+    include_once "../connections/conection.php";
+    include_once "../connections/Model.php";
+
+    $model = new Model();
+
+    $nomeSend = $_POST["textinput_nome"];
+    $msg = $_POST["textarea_mensagem"];
+
+    $notify = $model->mandaNotificacao($con, $nomeSend, "admin", $msg);
 }
 
 ?>
@@ -56,8 +66,6 @@ if (isset($_GET["success"])) {
                        aria-expanded="false">Jurídico <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="../law/lawyers.php">Advogados</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="../law/rank.php">Ranking</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -124,7 +132,7 @@ if (isset($_GET["success"])) {
                     <label class="col-md-4 control-label" for="singlebutton_enviar"></label>
                     <div class="col-md-4">
                         <button id="singlebutton_enviar" name="singlebutton_enviar" type="submit"
-                                class="btn" style="background-color: #00CC00; color:#000;">Enviar
+                                class="btn" style="background-color: #8a6d3b; border: 0px; color: white;">Enviar
                         </button>
                     </div>
                 </div>

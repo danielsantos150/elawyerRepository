@@ -10,8 +10,6 @@
     include_once "../connections/conection.php";
     include_once "../connections/Model.php";
 
-
-
     $model = new Model();
 
     $nome = "";
@@ -31,7 +29,7 @@
         $rank = "RANK 1";
     }
 
-include_once "info_perfil.php";
+    include_once "info_perfil.php";
 
 ?>
 

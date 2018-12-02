@@ -56,8 +56,6 @@ session_start();
                                    aria-expanded="false">Jurídico <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="../law/lawyers.php">Advogados</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="../law/rank.php">Ranking</a></li>
                                 </ul>
                             <li class="dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha Área <span class="caret"></span></a>
@@ -124,16 +122,9 @@ session_start();
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div><!-- /.carousel -->
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
+</div>
 
 <div class="container marketing">
-
-    <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
             <img class="img-circle"
@@ -141,7 +132,6 @@ session_start();
                  alt="Generic placeholder image" width="140" height="140">
             <h2>Daniel Santos</h2>
             <p>Estudante na área de Sistemas Informação na Faculdade Cotemig, atualmente tem 21 anos de idade.</p>
-            <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <img class="img-circle" src="../bootstrap/201303051406_oab.jpg" alt="Generic placeholder image" width="140"
@@ -150,7 +140,6 @@ session_start();
             <p>O Conselho Federal da Ordem dos Advogados do Brasil ou Conselho Federal da OAB ou simplesmente OAB é a
                 entidade máxima de representação dos advogados brasileiros e responsável pela regulamentação da
                 advocacia no Brasil, presidida atualmente por Claudio Lamachia.</p>
-            <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <img class="img-circle" src="../bootstrap/CpCz7_KN_400x400.png" alt="Generic placeholder image" width="140"
@@ -159,7 +148,6 @@ session_start();
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
                 porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
                 fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">Mais detalhes &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 

@@ -65,7 +65,6 @@ if (isset($_POST)) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">E-LAWYER</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -78,8 +77,6 @@ if (isset($_POST)) {
                            aria-expanded="false">Jurídico <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="../law/lawyers.php">Advogados</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../law/rank.php">Ranking</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -140,28 +137,6 @@ if (isset($_POST)) {
     </div>
 
     <div class="container">
-        <!-- Aqui será adicionado informações dos envolvidos no projeto elawyer, bem como parceiros -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Daniel Santos</h2>
-                <p>Descrição do profissional. </p>
-                <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Fernanda Maia</h2>
-                <!-- <center><img class="img-circle" src="../bootstrap/pessoa1.jpg" alt="Generic placeholder image" width="140"
-                             height="140"></center>-->
-                <p>Descrição do profissional.</p>
-                <!-- <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p> -->
-            </div>
-            <div class="col-md-4">
-                <h2>Fernando Junior</h2><!-- <h2>Fernando Junior</h2> -->
-                <!-- <center><img class="img-circle" src="../bootstrap/pessoa2.jpg" alt="Generic placeholder image" width="140"
-                             height="140" style="border-radius: 5px"></center>-->
-                <p>Descrição Profissional.</p>
-                <p><a class="btn btn-default" href="#" role="button">Visitar Perfil &raquo;</a></p>
-            </div>
-        </div>
         <hr>
         <footer>
             <p>&copy; 2018 COTEMIG</p>
