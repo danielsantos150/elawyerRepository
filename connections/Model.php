@@ -224,4 +224,54 @@ class Model
         return $stmt;
     }
 
+    function mostraAvaliacoes($con, $mail){
+
+        $query = "SELECT date_format(`assessments_law`.`date`, '%m/%Y') as 'data',
+                    `assessments_law`.`comment`, `assessments_law`.`cliente`
+                FROM `database_lawyer`.`assessments_law`
+                WHERE `assessments_law`.`mail` = '$mail';";
+
+        $stmt = mysqli_query($con, $query);
+
+        return $stmt;
+    }
+
+    function insereInteresse($con, $nome){ //terminar a inserão do interesse do cliente... || atualizar tabelas...
+        try{
+            $query = "INSERT INTO database_lawyer.users_chat (`users`, `date_login`)
+                        VALUES ('$nome',now());";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+    }
+
+    function insereDenuncia($con, $nome){ //terminar a inserão da denuncia do cliente... || atualizar tabelas...
+        try{
+            $query = "INSERT INTO database_lawyer.users_chat (`users`, `date_login`)
+                        VALUES ('$nome',now());";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+    }
+
+    function buscaRank($con, $nome){
+        try{
+            $query = "SELECT l.name, l.rank FROM database_lawyer.law as l WHERE l.name = '$nome'";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+    }
+
 }

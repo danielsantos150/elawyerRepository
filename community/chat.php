@@ -14,7 +14,7 @@ for ($i = 1; $i <= $qtd; $i++) {
     $linha = mysqli_fetch_assoc($result);
 
     $usuarios .= "<li class='list-group-item' style='background-color: #00CC00; border: #0f0f0f'>
-                        <img src=\"../bootstrap/open-iconic-master/svg/person.svg\">&nbsp&nbsp $linha[users]
+                        $linha[users]
                     </li>";
 
     $usuOnlines .= "<tr><td>

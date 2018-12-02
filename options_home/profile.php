@@ -57,7 +57,47 @@ $social = $userPreff["social"];
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        ul.dropdown-cart{
+            min-width:250px;
+        }
+        ul.dropdown-cart li .item{
+            display:block;
+            padding:3px 10px;
+            margin: 3px 0;
+        }
+        ul.dropdown-cart li .item:hover{
+            background-color:#f3f3f3;
+        }
+        ul.dropdown-cart li .item:after{
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
 
+        ul.dropdown-cart li .item-left{
+            float:left;
+        }
+        ul.dropdown-cart li .item-left img,
+        ul.dropdown-cart li .item-left span.item-info{
+            float:left;
+        }
+        ul.dropdown-cart li .item-left span.item-info{
+            margin-left:10px;
+        }
+        ul.dropdown-cart li .item-left span.item-info span{
+            display:block;
+        }
+        ul.dropdown-cart li .item-right{
+            float:right;
+        }
+        ul.dropdown-cart li .item-right button{
+            margin-top:14px;
+        }
+    </style>
 
 </head>
 
@@ -99,205 +139,220 @@ $social = $userPreff["social"];
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a>Bem Vindo ao E-LAWYER! <span class="sr-only">(current)</span></a></li>
-            </ul>
         </div>
     </div>
 </nav>
 <br>
 
-<div class="container">
+    <div class="container">
 
-    <div class="container bootstrap snippet">
-        <div class="row">
-            <div class="col-sm-10"><h1><?php echo $name; ?></h1></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
+        <div class="container bootstrap snippet">
+            <div class="row">
+                <div class="col-sm-10"><h1><?php echo $name; ?></h1></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
 
-                <div class="text-center">
-                    <img src="http://placehold.it/150/<?php echo $corProfile; ?>/fff&amp;text=<?php echo $firtsChar; ?>"
-                         class="avatar img-circle img-thumbnail" alt="avatar">
-                    <!-- <h6>Upload a different photo...</h6>
-                    <input type="file" class="text-center center-block file-upload"> -->
-                </div>
-                </hr><br>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">Rede Social</div>
-                    <div class="panel-body">
-                        <a href="<?php echo $social; ?>" target="_blank">LinkedIn</a>
+                    <div class="text-center">
+                        <img src="http://placehold.it/150/<?php echo $corProfile; ?>/fff&amp;text=<?php echo $firtsChar; ?>"
+                             class="avatar img-circle img-thumbnail" alt="avatar">
+                        <!-- <h6>Upload a different photo...</h6>
+                        <input type="file" class="text-center center-block file-upload"> -->
                     </div>
-                </div>
+                    </hr><br>
 
-            </div><!--/col-3-->
-            <div class="col-sm-8">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Perfil</a></li>
-                    <li><a data-toggle="tab" href="#preferences">Preferências</a></li>
-                </ul>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Rede Social</div>
+                        <div class="panel-body">
+                            <a href="<?php echo $social; ?>" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
 
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                        <hr>
-                        <form class="form" action="profile.php?apply=true" method="post" id="regForm">
-                            <div class="form-group">
+                </div><!--/col-3-->
+                <div class="col-sm-8">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Perfil</a></li>
+                        <li><a data-toggle="tab" href="#preferences">Preferências</a></li>
+                        <li><a data-toggle="tab" href="#notify">Notificações</a></li>
+                    </ul>
 
-                                <div class="col-xs-6">
-                                    <label for="first_name"><h4>Primeiro nome</h4></label>
-                                    <input type="text" class="form-control" name="first_name" id="first_name"
-                                           placeholder="Primeiro nome" title="Digite o seu primeiro nome aqui"
-                                           value=<?php echo $name; ?>>
-                                </div>
-                            </div>
-                            <div class="form-group">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <hr>
+                            <form class="form" action="profile.php?apply=true" method="post" id="regForm">
+                                <div class="form-group">
 
-                                <div class="col-xs-6">
-                                    <label for="last_name"><h4>Último nome</h4></label>
-                                    <input type="text" class="form-control" name="last_name" id="last_name"
-                                           placeholder="Último nome" title="Digite seu último nome aqui"
-                                           value=<?php echo $lastname; ?>>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="phone"><h4>Telefone Residencial</h4></label>
-                                    <input type="text" class="form-control" name="phone" id="phone"
-                                           placeholder="(XX) XXXX-XXXX" title="Digite seu telefone aqui"
-                                           value="<?php echo $phone; ?>">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="mobile"><h4>Telefone Celular</h4></label>
-                                    <input type="text" class="form-control" name="mobile" id="mobile"
-                                           placeholder="(XX) XXXXX-XXXX" title="Digite seu celular aqui"
-                                           value="<?php echo $mobile; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="email"><h4>Email</h4></label>
-                                    <input type="email" readonly class="form-control" name="email" id="email"
-                                           placeholder="email@email.com" title="Seu email não pode ser alterado"
-                                           value="<?php echo $mail ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="email"><h4>Endereço</h4></label>
-                                    <input type="email" class="form-control" id="location" placeholder="Endereço"
-                                           title="Digite seu endereço" value="<?php echo $address ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <div class="col-xs-6">
-                                    <label for="password"><h4>Senha</h4></label>
-                                    <input type="password" class="form-control" name="password" id="password"
-                                           placeholder="Senha"
-                                           title="Caso queira alterar sua senha, digite a nova aqui">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="password2"><h4>Repita a senha</h4></label>
-                                    <input type="password" class="form-control" name="password2" id="password2"
-                                           placeholder="Senha" title="Digite novamente sua senha">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <br>
-                                    <button class="btn btn-lg btn-success" type="submit"><i
-                                                class="glyphicon glyphicon-ok-sign"></i> Salvar
-                                    </button>
-                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
-                                        Reset
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-
-                        <hr>
-
-                    </div><!--/tab-pane-->
-                    <div class="tab-pane" id="preferences">
-                        <hr>
-                        <form class="form" action="##" method="post" id="registrationForm">
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <input type="checkbox" name="public-perfil" id="public-perfil"
-                                           title="Isso permitirá que outros usuários vejam seu perfil"> Tornar perfil
-                                    público
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <input type="checkbox" name="notify" id="notify"
-                                           title="Isso enviará notificações para seu email"> Receber notificações por
-                                    email
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <input type="checkbox" name="contact_pref" id="contact_pref"
-                                           title="Isso permitirá contato de outros usuários"> Permitir contato de outros
-                                    usuários
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-8">
-                                    <label for="password2"><h4>Rede Sociail</h4></label>
-                                    <input type="text" class="form-control" name="social" id="social"
-                                           placeholder="Linkedin" title="Coloque aqui o link do seu LinkedIn">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="mobile"><h4>Forma de Pagamento</h4></label>
-                                    <p class="alert alert-warning">Nosso serviço não é cobrado, a forma de pagamento
-                                        escolhida é a que será informada ao entrar em contato com os Advogados</p>
-                                    <div class="form-group">
-                                        <select class="form-control" id="pay">
-                                            <option>Selecione uma opção</option>
-                                            <option value="1">PayPal</option>
-                                            <option value="2">Boleto Bancário</option>
-                                            <option value="3">Cartão de Crédito</option>
-                                            <option value="4">Cartão de Débito</option>
-                                            <option value="5">Dinheiro</option>
-                                        </select>
+                                    <div class="col-xs-6">
+                                        <label for="first_name"><h4>Primeiro nome</h4></label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name"
+                                               placeholder="Primeiro nome" title="Digite o seu primeiro nome aqui"
+                                               value=<?php echo $name; ?>>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <br>
-                                    <button class="btn btn-lg btn-success pull-right" type="submit"><i
-                                                class="glyphicon glyphicon-ok-sign"></i> Save
-                                    </button>
-                                    <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="last_name"><h4>Último nome</h4></label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name"
+                                               placeholder="Último nome" title="Digite seu último nome aqui"
+                                               value=<?php echo $lastname; ?>>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="phone"><h4>Telefone Residencial</h4></label>
+                                        <input type="text" class="form-control" name="phone" id="phone"
+                                               placeholder="(XX) XXXX-XXXX" title="Digite seu telefone aqui"
+                                               value="<?php echo $phone; ?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="mobile"><h4>Telefone Celular</h4></label>
+                                        <input type="text" class="form-control" name="mobile" id="mobile"
+                                               placeholder="(XX) XXXXX-XXXX" title="Digite seu celular aqui"
+                                               value="<?php echo $mobile; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>Email</h4></label>
+                                        <input type="email" readonly class="form-control" name="email" id="email"
+                                               placeholder="email@email.com" title="Seu email não pode ser alterado"
+                                               value="<?php echo $mail ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>Endereço</h4></label>
+                                        <input type="location" class="form-control" id="location" placeholder="Endereço"
+                                               title="Digite seu endereço" value="<?php echo $address ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="password"><h4>Senha</h4></label>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                               placeholder="Senha"
+                                               title="Caso queira alterar sua senha, digite a nova aqui">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="password2"><h4>Repita a senha</h4></label>
+                                        <input type="password" class="form-control" name="password2" id="password2"
+                                               placeholder="Senha" title="Digite novamente sua senha">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" type="submit"><i
+                                                    class="glyphicon glyphicon-ok-sign"></i> Salvar
+                                        </button>
+                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
+                                            Reset
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <hr>
+
+                        </div><!--/tab-pane-->
+                        <div class="tab-pane" id="preferences">
+                            <hr>
+                            <form class="form" action="##" method="post" id="registrationForm">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input type="checkbox" name="public-perfil" id="public-perfil"
+                                               title="Isso permitirá que outros usuários vejam seu perfil"> Tornar perfil
+                                        público
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input type="checkbox" name="contact_pref" id="contact_pref"
+                                               title="Isso permitirá contato de outros usuários"> Permitir contato de outros
+                                        usuários
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-8">
+                                        <label for="password2"><h4>Rede Sociail</h4></label>
+                                        <input type="text" class="form-control" name="social" id="social"
+                                               placeholder="Linkedin" title="Coloque aqui o link do seu LinkedIn">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="mobile"><h4>Forma de Pagamento</h4></label>
+                                        <p class="alert alert-warning">Nosso serviço não é cobrado, a forma de pagamento
+                                            escolhida é a que será informada ao entrar em contato com os Advogados</p>
+                                        <div class="form-group">
+                                            <select class="form-control" id="pay">
+                                                <option>Selecione uma opção</option>
+                                                <option value="1">PayPal</option>
+                                                <option value="2">Boleto Bancário</option>
+                                                <option value="3">Cartão de Crédito</option>
+                                                <option value="4">Cartão de Débito</option>
+                                                <option value="5">Dinheiro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success pull-right" type="submit"><i
+                                                    class="glyphicon glyphicon-ok-sign"></i> Save
+                                        </button>
+                                        <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="notify">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Descrição</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>O advogado respondeu a sua solicitação de caso.</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Outra notificação</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Outra notificação</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-
-                </div><!--/tab-pane-->
-            </div><!--/tab-content-->
-
-        </div><!--/col-9-->
-    </div><!--/row-->
-    <hr>
-    <footer>
-        <p>&copy; 2018 COTEMIG</p>
-    </footer>
-</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>&copy; 2018 COTEMIG</p>
+        </footer>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>

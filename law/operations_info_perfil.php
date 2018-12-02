@@ -23,8 +23,7 @@ for ($i = 1; $i <= $num_row; $i++) {
 
     $linha = mysqli_fetch_assoc($valores);
     //var_dump($linha);exit;
-    $mensagem .= "
-                    <div class=\"messaging\">
+    $mensagem .= "<div class=\"messaging\">
                         <div class=\"incoming_msg\">
                             <p><div class=\"incoming_msg_img\">
                                 <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\">

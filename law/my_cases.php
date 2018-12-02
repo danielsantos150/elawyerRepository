@@ -25,7 +25,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
-<body>
+<body style="background-image: url('../inc/background.png')">
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -58,10 +58,8 @@
                     <ul class="dropdown-menu">
                         <li><a href="../options_home/profile.php">Meu Perfil</a></li>
                         <li><a href="my_cases.php">Meus Casos</a></li>
-                        <li><a href="../login2.php">Sair</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Jurídico</li>
-                        <li><a href="#">Advogados</a></li>
+                        <li><a href="../login2.php">Sair</a></li>
                     </ul>
                 </li>
             </ul>
@@ -71,8 +69,6 @@
         </div>
     </div>
 </nav>
-<br>
-<br><br><br><br>
 <form id="form_contact" method="POST">
     <div class="container">
         <h3>Meus Casos Jurídicos!</h3>
