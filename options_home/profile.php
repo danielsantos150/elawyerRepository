@@ -124,8 +124,6 @@ $social = $userPreff["social"];
                        aria-expanded="false">Jurídico <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="../law/lawyers.php">Advogados</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="../law/rank.php">Ranking</a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
