@@ -236,13 +236,10 @@ class Model
         return $stmt;
     }
 
-    function insereInteresse($con, $nome){ //terminar a inserão do interesse do cliente... || atualizar tabelas...
+    function insereInteresse($con, $uSend, $uReceive, $msg){
         try{
-            $query = "INSERT INTO database_lawyer.users_chat (`users`, `date_login`)
-                        VALUES ('$nome',now());";
 
-            $stmt = mysqli_query($con, $query);
-
+            $stmt = $this->mandaNotificacao($con, $uSend, $uReceive, $msg);
             return $stmt;
         }catch (Exception $exception){
             return $exception;exit;
@@ -291,7 +288,6 @@ class Model
         }catch (Exception $exception){
             return $exception;exit;
         }
-
     }
 
     function buscaInfoAdvogado($con, $nome){
@@ -313,6 +309,25 @@ class Model
             $query = "SELECT c.id_case, c.client, c.describe, c.date 
                       FROM database_lawyer.law_cases c 
                       WHERE c.law = '".$nome."';";
+
+            $stmt = mysqli_query($con, $query);
+
+            return $stmt;
+        }catch (Exception $exception){
+            return $exception;exit;
+        }
+    }
+
+    function mandaAvaliacao($con, $emailAdvogado, $usuarioEnviou, $msg){
+
+        try{
+            $query = "INSERT INTO `database_lawyer`.`assessments_law`
+                    (`mail`,`date`,`comment`,`cliente`)
+                    VALUES
+                    ('".$emailAdvogado."',
+                     now(),
+                    '".$msg."',
+                    '".$usuarioEnviou."');";
 
             $stmt = mysqli_query($con, $query);
 

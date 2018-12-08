@@ -101,7 +101,17 @@ body {
 
 /* Profile Content */
 .profile-content {
-    padding: 20px;
+    padding: 10px;
     background: #fff;
-    min-height: 460px;
+    min-height: 465px;
+}
+.profile-content1 {
+     padding: 10px;
+     background: #fff;
+     min-height: 50px;
+ }
+.profile-content2 {
+    padding: 10px;
+    background: #fff;
+    min-height: 80px;
 }

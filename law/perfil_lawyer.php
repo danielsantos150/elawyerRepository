@@ -29,8 +29,28 @@
         $rank = "RANK 1";
     }
 
+    $nomeAdvogadoResult = $model->buscaInfoAdvogado($con, $nome);
+    $dadosAdvogado = mysqli_fetch_assoc($nomeAdvogadoResult);
+    $emailAdvogado = $dadosAdvogado["email"];
+
+    $_SESSION["emailAdvogado"] = $emailAdvogado;
+
     include_once "info_perfil.php";
 
+    if(isset($_POST["textarea_avaliacao"]) ){
+        if($_POST["textarea_avaliacao"]){
+            $msg = $_POST["textarea_avaliacao"];
+
+            $resultUsuario = $model->infoUser($_SESSION["usuario"], $con);
+            $nomeUsuario = mysqli_fetch_assoc($resultUsuario);
+            $nomeSend = $nomeUsuario["name"];
+
+            //$model->mandaNotificacao($con, $nomeSend, $nome, $msg);
+            $model->mandaAvaliacao($con, $emailAdvogado, $nomeSend, $msg);
+            unset($_POST["textarea_avaliacao"]);
+            header("Refresh:1");
+       }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +84,6 @@
                 document.getElementById('sucesso').style.display = "none";
             }
         </script>
-
     </head>
     <body style="background-image: url('../inc/background.png');">
         <?php echo $nav;?>
@@ -120,7 +139,10 @@
                                 <li>
                                     <a href="?type=3">
                                         <i class="glyphicon glyphicon-ok"></i>
-                                        Avaliações </a>
+                                        Avaliações</a>
+                                </li>
+                                <li>
+                                    <a style='border: 0px;' data-toggle="modal" data-target=".model-avalia"><span class="glyphicon glyphicon-plus"></span>&nbsp; Avaliar Advogado</a>
                                 </li>
                             </ul>
                         </div>
@@ -172,6 +194,25 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade model-avalia" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Avaliação do Advogado <?php echo $nome; ?></h5>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" id="form" name="form" method="POST" action="#" autocomplete="off">
+                        <textarea class="form-control" id="textarea_avaliacao" name="textarea_avaliacao" required=""
+                                  placeholder="Digite aqui sua avaliação."></textarea>
+                            <button type="submit" class="btn btn-success" style="margin-top: 15px;">Enviar</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
 
     $model = new Model();
 
-    $mail = $_SESSION['usuario'];
+    $mail = $_SESSION['emailAdvogado'];
     $valores = $model->mostraAvaliacoes($con, $mail);
     $num_row = mysqli_num_rows($valores);
 
@@ -25,20 +25,28 @@
 
     $mensagem = "<div class=\"profile-content\">";
 
-    for ($i = 1; $i <= $num_row; $i++) {
+    if($num_row == 0){
+        $mensagem = "<div class=\"profile-content1\">";
+        $mensagem.= "<p style='text-align: center; margin-top: 10px;'>Advogado sem avaliações cadastradas no sistema, seja o primeiro a avaliá-lo!</p>
+                                </div>";
+    }else{
+        $mensagem = "<div class=\"profile-content2\">";
+        for ($i = 1; $i <= $num_row; $i++) {
 
-        $linha = mysqli_fetch_assoc($valores);
-        $mensagem .= "<div class=\"messaging\">
-                            <div class=\"incoming_msg\">
-                                <p><div class=\"incoming_msg_img\">
-                                    <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\">
-                                        </div>&nbsp;&nbsp;&nbsp;";
-        $mensagem .= $linha["comment"];
-        $mensagem .= "</p></div><p style='text-align: right;'><span class=\"time_date\" style='width: 500px;'>".$linha['data'].'&nbsp;|&nbsp;'.$linha['cliente']."</span></p>";
+            $linha = mysqli_fetch_assoc($valores);
+            $mensagem .= "<div class=\"messaging\">
+                                <div class=\"incoming_msg\">
+                                    <p><div class=\"incoming_msg_img\">
+                                        <img src=\"https://ptetutorials.com/images/user-profile.png\" alt=\"sunil\">
+                                            </div>&nbsp;&nbsp;";
+            $mensagem .= $linha["comment"];
+            $mensagem .= "</p></div><p style='text-align: right;'><span class=\"time_date\" style='width: 500px;'>".$linha['data'].'&nbsp;|&nbsp;'.$linha['cliente']."</span></p>";
 
+        }
+        $mensagem .= "</div></div></div>";
     }
-    $mensagem .= "</div></div><button class='btn btn-primary' style='background-color: #8a6d3b; border: 0px;'><span class=\"glyphicon glyphicon-ok-sign\"></span>&nbsp; Avaliar Advogado</button></div>";
 
+#<button class='btn btn-primary' style='background-color: #8a6d3b; border: 0px;' data-toggle="modal" data-target=".model-avalia"><span class="glyphicon glyphicon-ok-sign"></span>&nbsp; Avaliar Advogado</button>
 
     $infoCasos = $model->buscaCasosAdvogado($con, $advogado);
     $nRow = mysqli_num_rows($infoCasos);

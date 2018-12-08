@@ -285,14 +285,14 @@ $social = $userPreff["social"];
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xs-8">
-                                        <label for="password2"><h4>Rede Sociail</h4></label>
+                                        <label for="socialMidia"><h4>Rede Social</h4></label>
                                         <input type="text" class="form-control" name="social" id="social"
                                                placeholder="Linkedin" title="Coloque aqui o link do seu LinkedIn">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xs-6">
-                                        <label for="mobile"><h4>Forma de Pagamento</h4></label>
+                                        <label for="payMethod"><h4>Forma de Pagamento</h4></label>
                                         <p class="alert alert-warning">Nosso serviço não é cobrado, a forma de pagamento
                                             escolhida é a que será informada ao entrar em contato com os Advogados</p>
                                         <div class="form-group">

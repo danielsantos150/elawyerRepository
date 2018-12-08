@@ -88,7 +88,7 @@ for ($i = 1; $i <= $qtd; $i++) {
         </ul>
     </div>
 </nav>
-<div class="container" style="height: 600px; width: 1500px;">
+<div class="container" style="height: 600px; width: 1300px;">
     <div class="row">
         <div class="col-md-1">
             <ul class='list-group'>
