@@ -5,39 +5,42 @@
  * Date: 29/09/2018
  * Time: 18:06
  */
-session_start();
-include "../connections/conection.php";
-include "../connections/Model.php";
+    session_start();
+    include "../connections/conection.php";
+    include "../connections/Model.php";
 
-$model = new Model();
+    $model = new Model();
 
-$mail = $_SESSION['usuario'];
-$mail = "danielmaia@gmail.com";
+    $mail = $_SESSION['usuario'];
 
-$infoUser = $model->infoUser($mail, $con);
-$infoUser = mysqli_fetch_assoc($infoUser);
-$name = ucfirst(strtolower($infoUser["name"]));
-$phone = $infoUser["phone"];
+    $infoUser = $model->infoUser($mail, $con);
+    $infoUser = mysqli_fetch_assoc($infoUser);
+    $name = ucfirst(strtolower($infoUser["name"]));
+    $phone = $infoUser["phone"];
 
-$lastname = $model->uclast($infoUser["name"]);
+    $lastname = $model->uclast($infoUser["name"]);
 
-if ($lastname == $name) {
-    $lastname = "";
-}
-$address = $infoUser["address"];
-$state = $infoUser["state"];
-$mobile = $infoUser["mobile"];
-$firtsChar = substr($name, 0, 1);
+    if ($lastname == $name) {
+        $lastname = "";
+    }
+    $address = $infoUser["address"];
+    $state = $infoUser["state"];
+    $mobile = $infoUser["mobile"];
+    $firtsChar = substr($name, 0, 1);
 
-$corProfile = $model->random_color();
+    $corProfile = $model->random_color();
 
-$userPreff = $model->infoPreferences($mail, $con);
-$userPreff = mysqli_fetch_assoc($userPreff);
+    $userPreff = $model->infoPreferences($mail, $con);
+    $userPreff = mysqli_fetch_assoc($userPreff);
 
-$public_perfil = $userPreff["public_perfil"];
-$contact_mail = $userPreff["contact_mail"];
-$contact_me = $userPreff["contact_me"];
-$social = $userPreff["social"];
+    $public_perfil = $userPreff["public_perfil"];
+    $contact_mail = $userPreff["contact_mail"];
+    $contact_me = $userPreff["contact_me"];
+    $social = $userPreff["social"];
+
+    include_once "notify_me.php";
+
+    var_dump($notifications);exit;
 
 ?>
 
@@ -311,7 +314,6 @@ $social = $userPreff["social"];
                                         <button class="btn btn-lg btn-success pull-right" type="submit"><i
                                                     class="glyphicon glyphicon-ok-sign"></i> Save
                                         </button>
-                                        <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
                                     </div>
                                 </div>
                             </form>
