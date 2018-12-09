@@ -46,8 +46,6 @@
         $mensagem .= "</div></div></div>";
     }
 
-#<button class='btn btn-primary' style='background-color: #8a6d3b; border: 0px;' data-toggle="modal" data-target=".model-avalia"><span class="glyphicon glyphicon-ok-sign"></span>&nbsp; Avaliar Advogado</button>
-
     $infoCasos = $model->buscaCasosAdvogado($con, $advogado);
     $nRow = mysqli_num_rows($infoCasos);
 

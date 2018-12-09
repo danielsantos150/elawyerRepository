@@ -15,29 +15,30 @@
 
     $model = new Model();
 
-    var_dump($_SESSION);exit;
+    $emailUsuario = $_SESSION["usuario"];
+
+    $resultNotify = $model->buscaNotificacoes($con, $emailUsuario);
+
+    $num_row = mysqli_num_rows($resultNotify);
 
     $notifications = "<table class=\"table table-striped\">
-                                <thead>
-                                <tr>
-                                    <th scope=\"col\">#</th>
-                                    <th scope=\"col\">Descrição</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <th scope=\"row\">1</th>
-                                    <td>O advogado respondeu a sua solicitação de caso.</td>
+                                    <thead>
+                                    <tr>
+                                        <th scope=\"col\">#</th>
+                                        <th scope=\"col\">De</th>
+                                        <th scope=\"col\">Descrição</th>                                        
+                                    </tr>
+                                    </thead><tbody>";
 
-                                </tr>
-                                <tr>
-                                    <th scope=\"row\">2</th>
-                                    <td>Outra notificação</td>
+    for ($i = 1; $i <= $num_row; $i++) {
 
-                                </tr>
-                                <tr>
-                                    <th scope=\"row\">3</th>
-                                    <td>Outra notificação</td>
-                                </tr>
-                                </tbody>
-                            </table>";
+        $linha = mysqli_fetch_assoc($resultNotify);
+
+        $notifications.="<tr>
+                            <th scope=row>".$i."</th>
+                            <td>".$linha["user_send"]."</td>
+                            <td>".$linha["mensage"]."</td>                            
+                         </tr>";
+
+    }
+    $notifications.= "</tbody></table>";

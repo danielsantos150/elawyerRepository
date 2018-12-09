@@ -40,7 +40,7 @@
 
     include_once "notify_me.php";
 
-    var_dump($notifications);exit;
+    //var_dump($notifications);exit;
 
 ?>
 
@@ -319,30 +319,7 @@
                             </form>
                         </div>
                         <div class="tab-pane" id="notify">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Descrição</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>O advogado respondeu a sua solicitação de caso.</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Outra notificação</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Outra notificação</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <?php echo $notifications; ?>
                         </div>
                     </div>
                 </div>

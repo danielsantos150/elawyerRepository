@@ -333,11 +333,16 @@
         function buscaNotificacoes($con, $email){
 
             try{
-                $query = "";
+                $query = "SELECT `notify`.`user_send`,
+                            `notify`.`user_receive`,
+                            `notify`.`date`,
+                            `notify`.`mensage`
+                        FROM `database_lawyer`.`notify`
+                        WHERE `notify`.`user_receive` = '".$email."';";
+                //var_dump($query);exit;
+                $stmt = mysqli_query($con, $query);
 
-                $stmt = mysqli_query($query);
-
-                return stmt;
+                return $stmt;
             }catch (Exception $exception){
                 return $exception;exit;
             }
