@@ -407,7 +407,7 @@
                             VALUES
                             ('".$client."',
                             '".$descricao."',
-                            ".$advogado.",
+                            '".$advogado."',
                             now());";
 
                 $stmt = mysqli_query($con, $query);
