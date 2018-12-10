@@ -339,7 +339,90 @@
                             `notify`.`mensage`
                         FROM `database_lawyer`.`notify`
                         WHERE `notify`.`user_receive` = '".$email."';";
-                //var_dump($query);exit;
+
+                $stmt = mysqli_query($con, $query);
+
+                return $stmt;
+            }catch (Exception $exception){
+                return $exception;exit;
+            }
+        }
+
+        function buscaMeusCasos($con, $usuario){
+
+            try{
+                $query = "SELECT `law_cases`.`id_case`,
+                            `law_cases`.`client`,
+                            `law_cases`.`describe`,
+                            `law_cases`.`law`,
+                            `law_cases`.`date`
+                        FROM `database_lawyer`.`law_cases`
+                        WHERE `law_cases`.`client` = '".$usuario."';";
+
+                $stmt = mysqli_query($con, $query);
+
+                return $stmt;
+            }catch (Exception $exception){
+                return $exception;exit;
+            }
+        }
+
+        function atualizaDescricao($con, $id, $msg){
+
+            try{
+                $query = "UPDATE `database_lawyer`.`law_cases`
+                        SET                        
+                        `describe` = '".$msg."',                        
+                        `date` = now()
+                      WHERE `id_case` =".$id;
+
+                $stmt = mysqli_query($con, $query);
+
+                return $stmt;
+            }catch (Exception $exception){
+                return $exception;exit;
+            }
+
+        }
+
+        function encerraCaso($con, $id){
+            try{
+                $query = "UPDATE `database_lawyer`.`law_cases`
+                        SET                        
+                        `client` = 'ADMIN_SYSTEM'
+                      WHERE `id_case` =".$id;
+
+                $stmt = mysqli_query($con, $query);
+
+                return $stmt;
+            }catch (Exception $exception){
+                return $exception;exit;
+            }
+        }
+
+        function cadastraCaso($con, $advogado, $descricao, $client){
+            try{
+                $query = "INSERT INTO `database_lawyer`.`law_cases`
+                            (`client`,`describe`,`law`,`date`)
+                            VALUES
+                            ('".$client."',
+                            '".$descricao."',
+                            ".$advogado.",
+                            now());";
+
+                $stmt = mysqli_query($con, $query);
+
+                return $stmt;
+            }catch (Exception $exception){
+                return $exception;exit;
+            }
+        }
+
+        function buscaAdvogados($con){
+            try{
+                $query = "SELECT l.name, l.email, l.phone, l.mobile, l.resumo, l.rank 
+                          FROM database_lawyer.law l;";
+
                 $stmt = mysqli_query($con, $query);
 
                 return $stmt;
