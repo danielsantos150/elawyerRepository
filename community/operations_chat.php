@@ -11,7 +11,12 @@
     $mail = $_SESSION['usuario'];
     $usu = $model->takeName($mail, $con);
     $usu = mysqli_fetch_array($usu);
-    $model->regist_chat($usu["name"], $con);
+    if(is_null($usu["name"])){
+        $model->regist_chat("FREE", $con);
+        $eFREE = TRUE;
+    }else{
+        $model->regist_chat($usu["name"], $con);
+    }
     $valores = $model->mostraChat($con);
 
     $num_row = mysqli_num_rows($valores);
@@ -45,16 +50,23 @@
 
         if ($mensg != "") {
 
-
             $mail = $_SESSION['usuario'];
-            $usu = $model->takeName($mail, $con);
 
+            $usu = $model->takeName($mail, $con);
             $usu = mysqli_fetch_assoc($usu);
 
             $model->insereMensagem($mensg, $usu["name"], $con);
-            header("Location: chat.php");
+            if($eFREE == TRUE){
+                header("Location: home_free.php");
+            }else{
+                header("Location: chat.php");
+            }
         } else {
-            header("Location: chat.php");
+            if($eFREE == TRUE){
+                header("Location: home_free.php");
+            }else{
+                header("Location: chat.php");
+            }
         }
 
     }

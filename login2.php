@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("js/scripts.php");
 include("connections/conection.php");
 include("connections/Model.php");
@@ -20,14 +19,29 @@ if (isset($_POST["inputName"])) {
 
     $_SESSION['usuario'] = $email;
 
+    date_default_timezone_set('America/Sao_Paulo');
+    $dateNow = date('Y-m-d');
+
+    $data1 = new DateTime( $date );
+    $data2 = new DateTime( $dateNow );
+
+    $intervalo = $data1->diff( $data2 );
+
     $result = $model->regist_user($email, $password, $address, $city, $perf, $nome, $con);
+
+    if($perf == 0){
+        $phone = "";
+        $mobile = "";
+        $age = $intervalo->y;
+        $result = $model->cadastraAdvogado($con, $nome, $email, $age);
+    }
 
     if ($result == 1) {
         echo "<script> alert ('Cadastro realizado com sucesso!')</script>";
     } else {
         echo "<script> alert ('Falha ao realizar cadastro!')</script>";
     }
-    }
+}
 
 
 if (isset($_GET["forgot"]) && $_GET["forgot"] == 1 && isset($_POST["inputEmail"])) {
@@ -92,6 +106,7 @@ if (isset($_GET["forgot"]) && $_GET["forgot"] == 1 && isset($_POST["inputEmail"]
             <button type="button" class="btn btn-sm btn-link" onclick="redirect_login('signup.php')">Não possui cadastro?
                 Cadastre-se agora!
             </button>
+            <a class="btn btn-sm btn-link" href="community/home_free.php">Entrar como Free-Cause</a>
 
             <div class="g-recaptcha" data-sitekey="6LeJxG0UAAAAAN45DcMNRLMlDYhK465zhUR-y_km"></div>
             <br>

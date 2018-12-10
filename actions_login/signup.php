@@ -77,12 +77,12 @@ include("../js/scripts.php");
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inputState">Sexo</label>
+                    <label for="inputSex">Sexo</label>
                     <select id="inputSex" name="inputSex" class="form-control">
                         <option selected>Selecione...</option>
-                        <option value="MG">Masculino</option>
-                        <option value="SP">Feminino</option>
-                        <option value="RJ">Outro</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="O">Outro</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
@@ -96,7 +96,7 @@ include("../js/scripts.php");
                         <option value="0">Advogado</option>
                         <option value="1">Cliente</option>
                         <option value="2">Free-Cause</option>
-                        <option value="3">Consultor</option>
+                        <option value="3">Celetista</option>
                     </select>
                 </div>
             </div>

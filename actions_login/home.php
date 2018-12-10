@@ -31,6 +31,10 @@ if (isset($_POST)) {
             if ($result == NULL) {
                 header('Location: ../login2.php?msg=2');
             }
+            $val = mysqli_fetch_assoc($result);
+            if($val["type_user"] == 3){
+                header('Location: home_celetista.php');
+            }
 
         }
 

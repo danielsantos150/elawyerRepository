@@ -10,7 +10,7 @@
 
                 $hash = substr($hash, 0, 20);
 
-                $query = "SELECT user, email, pass 
+                $query = "SELECT user, email, pass, type_user 
                         FROM database_lawyer.users 
                         WHERE email = '$user' 
                         AND pass = '$hash';";
@@ -422,6 +422,25 @@
             try{
                 $query = "SELECT l.name, l.email, l.phone, l.mobile, l.resumo, l.rank 
                           FROM database_lawyer.law l;";
+
+                $stmt = mysqli_query($con, $query);
+
+                return $stmt;
+            }catch (Exception $exception){
+                return $exception;exit;
+            }
+        }
+
+        function cadastraAdvogado($con, $nome, $email, $age){
+
+            try{
+                $query = "INSERT INTO `database_lawyer`.`law`
+                            (`name`,`email`,`phone`,
+                            `mobile`,`cod_oab`,
+                            `age`,`date_regist`,`rank`)
+                            VALUES
+                            ('".$nome."','".$email."',
+                            '".$age."',now(),'INICIANTE');";
 
                 $stmt = mysqli_query($con, $query);
 
