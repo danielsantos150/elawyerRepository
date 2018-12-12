@@ -2,7 +2,6 @@
 include("js/scripts.php");
 include("connections/conection.php");
 include("connections/Model.php");
-require('PHPMailer/PHPMailer.php');
 
 $model = new Model();
 
