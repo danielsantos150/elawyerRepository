@@ -33,6 +33,8 @@ include_once "../nav.php";
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
     <script>
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
@@ -78,7 +80,15 @@ include_once "../nav.php";
             </tbody>
         </table>
     </div>
+    <br>
+    <div class="row">
+        <button class="btn btn-success btn" style="background-color: #8a6d3b; border: 0px;"
+                onclick="window.location.href='../options_home/contact_us_celetista.php'">
+            Indicar Novos Advogados
+        </button>
+    </div>
 </div>
+
 <script>window.jQuery || document.write('<script src="../bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
 
 </body>

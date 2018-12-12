@@ -1,0 +1,152 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Daniel
+ * Date: 29/09/2018
+ * Time: 15:52
+ */
+session_start();
+
+if (isset($_GET["success"])) {
+
+    include_once "../connections/conection.php";
+    include_once "../connections/Model.php";
+
+    $model = new Model();
+
+    $nomeSend = $_POST["textinput_nome"];
+    $msg = $_POST["textarea_mensagem"];
+
+    $notify = $model->mandaNotificacao($con, $nomeSend, "admin", $msg);
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../bootstrap/icon1.png">
+    <title><?php include '../actions_login/title.php'; ?></title>
+    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <script src="../bootstrap/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+
+<body style="background-image: url('../inc/background.png')">
+<nav class="navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../actions_login/home.php">Home</a></li>
+                <li><a href="../options_home/about_us.php">Sobre nós</a></li>
+                <li><a href="../community/chat.php">Comunidade</a></li>
+                <li class="active"><a href="contact_us.php">Fale Conosco</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Jurídico <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../law/lawyers.php">Advogados</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Minha Área <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../options_home/profile.php">Meu Perfil</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="../login2.php">Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>Bem Vindo ao E-LAWYER! <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<form id="form_contact" method="POST" action="contact_us.php?success=true" style="margin-top: 60px;">
+    <div class="container">
+        <h3 class="text-center">FALE CONOSCO!</h3></center>
+        <p class="text-center">
+            Tem alguma sugestão, dúvida, ajuda ou deseja mandar uma mensagem diretamente para nós?
+        </p>
+        <p class="text-center">Utilize o nosso formulário logo abaixo.</p>
+        <br>
+        <div class="form-horizontal col-md-12">
+            <div class="container">
+                <?php
+                if (isset($_GET["success"])) {
+                    echo "<div class='alert alert-success' >Mensagem encaminhada com sucesso!
+                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                        </div>";
+                }
+                ?>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput_nome">Nome</label>
+                    <div class="col-md-4">
+                        <input id="textinput_nome" name="textinput_nome" placeholder="Seu nome"
+                               class="form-control input-md" required="" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput_email">Email</label>
+                    <div class="col-md-4">
+                        <input id="textinput_email" name="textinput_email" placeholder="Seu e-mail"
+                               class="form-control input-md" required="" type="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textarea_mensagem">Mensagem</label>
+                    <div class="col-md-4">
+                        <textarea class="form-control" id="textarea_mensagem" name="textarea_mensagem" required=""
+                                  placeholder="Digite aqui sua mensagem"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton_enviar"></label>
+                    <div class="col-md-4">
+                        <button id="singlebutton_enviar" name="singlebutton_enviar" type="submit"
+                                class="btn" style="background-color: #8a6d3b; border: 0px; color: white;">Enviar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>&copy; 2018 COTEMIG</p>
+        </footer>
+    </div>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
