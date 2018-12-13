@@ -82,6 +82,7 @@
             function enviaDenuncia(e, elem) {
                 document.getElementById(e).style.display = "";
                 document.getElementById('sucesso').style.display = "none";
+                <?php include_once "sendMensageDenuncia.php"; ?>
             }
         </script>
     </head>
@@ -95,7 +96,7 @@
                 </button>
             </div>
             <div id="denuncia" class="alert alert-danger" role="alert" style="margin-top: 20px;display: none" >
-                Notificação de denúncia enviada para os administradores do sistema!
+                Notificação de denúncia enviada para o Advogado!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
